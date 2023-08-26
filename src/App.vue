@@ -5,7 +5,5 @@
     <div class="wrapper">Under development</div>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <main></main>
 </template>
