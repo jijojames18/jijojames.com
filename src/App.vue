@@ -2,8 +2,7 @@
 
 <template>
   <header>
-    <div class="wrapper">Under development</div>
+    <div class="wrapper flex justify-center content-center">Under development</div>
   </header>
-
   <main></main>
 </template>
