@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: #232323;
+  color: #7a878d;
+}
+
+footer .footer-social-links img:hover {
+  filter: invert(63%) sepia(52%) saturate(1963%) hue-rotate(92deg) brightness(106%) contrast(93%);
+}
+
+footer .footer-logo-wrapper img {
+  filter: invert(53%) sepia(13%) saturate(289%) hue-rotate(154deg) brightness(96%) contrast(92%);
+}

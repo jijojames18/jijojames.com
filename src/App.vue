@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PageFooter from './components/pageFooter.vue';
+</script>
 
 <template>
-  <header>
-    <div class="wrapper flex justify-center content-center">Under development</div>
-  </header>
-  <main></main>
+  <div class="wrapper">
+    <main></main>
+    <PageFooter></PageFooter>
+  </div>
 </template>
