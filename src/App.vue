@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useRecaptchaProvider } from 'vue-recaptcha';
+
+useRecaptchaProvider();
+
 import PageHeader from './components/pageHeader.vue';
 import SkillList from './components/skillList.vue';
 import OpenSource from './components/openSource.vue';
