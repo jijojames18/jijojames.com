@@ -28,45 +28,48 @@ const onSubmit = function () {
       status: SubmitStatus.ERROR,
       message: 'Captcha expired. Please recheck the captcha',
     };
+  } else {
+    axios
+      .post(
+        import.meta.env.VITE_POST_FEEDBACK_ENDPOINT,
+        JSON.stringify({
+          formData: {
+            name: contactName.value,
+            email: contactEmail.value,
+            comments: contactMessage.value,
+          },
+          captcha: captchaResponse.value,
+          site: 'jijojames.com',
+        }),
+        {
+          headers: {
+            'content-type': 'application/json',
+          },
+        },
+      )
+      .then(() => {
+        formStatus.value = {
+          status: SubmitStatus.SUCCESS,
+          message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
+        };
+      })
+      .catch(() => {
+        formStatus.value = {
+          status: SubmitStatus.SUCCESS,
+          message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
+        };
+      });
   }
-
-  axios
-    .post(
-      import.meta.env.VITE_POST_FEEDBACK_ENDPOINT,
-      JSON.stringify({
-        formData: {
-          name: contactName.value,
-          email: contactEmail.value,
-          comments: contactMessage.value,
-        },
-        captcha: captchaResponse.value,
-        site: 'jijojames.com',
-      }),
-      {
-        headers: {
-          'content-type': 'application/json',
-        },
-      },
-    )
-    .then(() => {
-      formStatus.value = {
-        status: SubmitStatus.SUCCESS,
-        message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
-      };
-    })
-    .catch(() => {
-      formStatus.value = {
-        status: SubmitStatus.SUCCESS,
-        message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
-      };
-    });
 };
 
 // Theme
 const inputTheme =
-  'h-auto min-h-[2.5em] w-full bg-transparent border-2 px-[1em] border-[#09c725] outline-0 focus:bg-[#09e85e1a] focus:shadow-[0_0_4px_2px_#09e85e]';
+  'h-auto min-h-[2.5em] w-full bg-transparent border-2 px-[1em] border-custom-success-color outline-0 focus:bg-custom-success-hover-color focus:shadow-custom-input-shadow';
 const labelTheme = 'mb-[0.5em] font-medium text-white';
 const wrapperTheme = 'w-1/2 sm:w-full md:w-full';
+const additionalLinksTheme = 'flex mb-[1em]';
+const submitButtonTheme =
+  'text-black font-semibold rounded mt-[1em] px-[1em] py-[0.5em] bg-white hover:bg-custom-button-hover-bg-color hover:border-custom-success-hover-color hover:shadow-custom-button-shadow';
 </script>
 
 <template>
@@ -78,13 +81,13 @@ const wrapperTheme = 'w-1/2 sm:w-full md:w-full';
         </div>
         <p class="text-[1.5em] mb-[1em]">Send me a mail, or submit the form to reach me.</p>
         <div>
-          <div class="flex mb-[1em]">
-            <img :src="mailIconUrl" />
+          <div :class="additionalLinksTheme">
+            <img :src="mailIconUrl" alt="Send an email to jijojames18@gmail.com" />
             <span class="pl-[1em] text-white self-center">jijojames18@gmail.com</span>
           </div>
-          <div class="flex mb-[1em]">
-            <img :src="resumeIconUrl" />
-            <a href="#" class="pl-[1em] text-[#09c725] self-center">Resume</a>
+          <div :class="additionalLinksTheme">
+            <img :src="resumeIconUrl" alt="Resume icon" />
+            <a href="#" class="pl-[1em] text-custom-success-color self-center">Resume</a>
           </div>
         </div>
       </div>
@@ -92,7 +95,7 @@ const wrapperTheme = 'w-1/2 sm:w-full md:w-full';
         <div
           v-if="formStatus.status === SubmitStatus.ERROR"
           v-text="formStatus.message"
-          class="text-[#e23939] text-[1.5em] m-[1.5em]"
+          class="text-custom-error-color text-[1.5em] m-[1.5em]"
         ></div>
         <div v-if="formStatus.status !== SubmitStatus.SUCCESS">
           <form method="post" @submit.prevent="onSubmit">
@@ -103,7 +106,6 @@ const wrapperTheme = 'w-1/2 sm:w-full md:w-full';
                 :class="inputTheme"
                 maxlength="256"
                 name="contact-name"
-                id="contact-name"
                 required
                 v-model="contactName"
               />
@@ -116,7 +118,6 @@ const wrapperTheme = 'w-1/2 sm:w-full md:w-full';
                 :class="inputTheme"
                 maxlength="256"
                 name="contact-email"
-                id="contact-email"
                 required
                 v-model="contactEmail"
               />
@@ -124,25 +125,20 @@ const wrapperTheme = 'w-1/2 sm:w-full md:w-full';
             <div>
               <label for="contact-message" :class="labelTheme">Message</label>
               <textarea
-                id="contact-message"
-                name="contact-message"
+                :class="`${inputTheme} py-[1em]`"
                 maxlength="5000"
+                name="contact-message"
                 required
                 v-model="contactMessage"
-                :class="`${inputTheme} py-[1em]`"
               ></textarea>
             </div>
             <div>
               <VueRecaptcha :key="reCaptchaTheme" :theme="reCaptchaTheme" v-model="captchaResponse"></VueRecaptcha>
             </div>
-            <input
-              type="submit"
-              value="Submit"
-              class="text-black font-semibold rounded mt-[1em] px-[1em] py-[0.5em] bg-white hover:bg-[#fefdfb] hover:border-[#09e85e] hover:shadow-[0_0_14px_2px_#09e85e]"
-            />
+            <input type="submit" value="Submit" :class="submitButtonTheme" />
           </form>
         </div>
-        <div v-else v-text="formStatus.message" class="text-[#09c725] text-[1.5em] m-[1.5em]"></div>
+        <div v-else v-text="formStatus.message" class="text-custom-success-color text-[1.5em] m-[1.5em]"></div>
       </div>
     </div>
   </section>
