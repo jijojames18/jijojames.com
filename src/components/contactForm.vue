@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { Checkbox as VueRecaptcha } from 'vue-recaptcha';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 const reCaptchaTheme = 'dark';
 const mailIconUrl = new URL('/assets/icon-mail.svg', import.meta.url).href;
@@ -29,36 +29,32 @@ const onSubmit = function () {
       message: 'Captcha expired. Please recheck the captcha',
     };
   } else {
-    axios
-      .post(
-        import.meta.env.VITE_POST_FEEDBACK_ENDPOINT,
-        JSON.stringify({
-          formData: {
-            name: contactName.value,
-            email: contactEmail.value,
-            comments: contactMessage.value,
-          },
-          captcha: captchaResponse.value,
-          site: 'jijojames.com',
-        }),
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
         {
-          headers: {
-            'content-type': 'application/json',
-          },
+          name: contactName.value,
+          email: contactEmail.value,
+          message: contactMessage.value,
+          'g-recaptcha-response': captchaResponse.value,
         },
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY,
       )
-      .then(() => {
-        formStatus.value = {
-          status: SubmitStatus.SUCCESS,
-          message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
-        };
-      })
-      .catch(() => {
-        formStatus.value = {
-          status: SubmitStatus.SUCCESS,
-          message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
-        };
-      });
+      .then(
+        () => {
+          formStatus.value = {
+            status: SubmitStatus.SUCCESS,
+            message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
+          };
+        },
+        () => {
+          formStatus.value = {
+            status: SubmitStatus.SUCCESS,
+            message: 'Thank you! Your message has been received! I will get back to you at the earliest.',
+          };
+        },
+      );
   }
 };
 
