@@ -25,8 +25,8 @@ const icons = [
 </script>
 
 <template>
-  <section class="mt-[8%] mb-[4em] px-[5%] min-h-screen">
-    <div class="flex flex-col justify-center flex-row max-w-[80em] mx-[auto] mt-[1em] mb-0 sm:flex-col md:flex-col">
+  <section class="mt-[8%] mb-[4em] px-[5%] min-h-screen" id="skills">
+    <div class="flex flex-col justify-center max-w-[80em] mx-[auto] mt-[1em] mb-0">
       <div class="text-white text-[3em] mb-[0.25em] text-center">
         <h2>Technology stack</h2>
       </div>

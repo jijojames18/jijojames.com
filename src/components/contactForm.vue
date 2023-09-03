@@ -69,7 +69,7 @@ const submitButtonTheme =
 </script>
 
 <template>
-  <section class="mt-[2em] mb-[4em] px-[5%]">
+  <section class="mt-[2em] mb-[4em] px-[5%]" id="contact">
     <div class="flex justify-center flex-row max-w-[80em] mx-[auto] my-0 sm:flex-col md:flex-col">
       <div :class="wrapperTheme">
         <div class="text-white text-[3em] mb-[0.25em]">
