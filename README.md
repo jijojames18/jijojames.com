@@ -1,5 +1,24 @@
 # jijojames.com
 
+Portfolio website built using VueJS and Tailwind CSS.  
+The website is hosted at [jijojames.com](https://jijojames.com).  
+This project was bootstrapped with [Create Vue App](https://github.com/vuejs/create-vue).
+
+### Styling
+
+Styling is done using `Tailwind CSS`.
+
+## Environment Variables
+
+The service requires a number of config data to be present as environment variables.
+
+| Variable               | Description               |
+| ---------------------- | ------------------------- |
+| VITE_RECAPTCHA_KEY     | Google ReCaptcha site key |
+| VITE_EMAIL_SERVICE_ID  | emailjs service id        |
+| VITE_EMAIL_TEMPLATE_ID | emailjs template id       |
+| VITE_EMAIL_PUBLIC_KEY  | emailjs public key        |
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
