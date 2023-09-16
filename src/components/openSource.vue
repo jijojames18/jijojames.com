@@ -1,10 +1,31 @@
 <script lang="ts" setup>
+import { computed } from 'vue';
 import { useFirestore } from 'vuefire';
 import { useCollection } from 'vuefire';
 import { collection } from 'firebase/firestore';
 
+interface ProjectItem {
+  title: string;
+  image: string;
+  desc: string;
+  technology: Array<string>;
+  github_link: string;
+  site_link: string;
+  pos: string;
+}
+
 const db = useFirestore();
-const projects = useCollection(collection(db, 'projects'));
+const projectCollection = useCollection<ProjectItem>(collection(db, 'projects'));
+
+const projects = computed(() =>
+  projectCollection.value
+    .map((item) => {
+      const url = '/assets/projects/' + item.image;
+      const iconUrl = new URL(url, import.meta.url).href;
+      return { ...item, image: iconUrl, id: parseInt(item.id) };
+    })
+    .sort((a, b) => (a.pos < b.pos ? -1 : 1)),
+);
 </script>
 
 <template>
@@ -18,12 +39,12 @@ const projects = useCollection(collection(db, 'projects'));
       <div
         role="listitem"
         class="m-[2em] border-[4px] px-[1em] border-custom-success-color shadow-custom-input-shadow"
-        v-for="({ title, image, desc, technology, github_link }, i) in projects"
+        v-for="({ title, image, desc, technology, github_link, site_link }, i) in projects"
         :key="i"
       >
         <div>
           <div>
-            <img :src="image" loading="lazy" :alt="title" :class="`Project: ${title}`" />
+            <img width="500" height="300" :src="image" loading="lazy" :alt="title" :class="`Project: ${title}`" />
           </div>
           <div>
             <h3 class="text-[2em] mt-[0.25em] text-white">{{ title }}</h3>
@@ -39,13 +60,23 @@ const projects = useCollection(collection(db, 'projects'));
                 {{ item }}
               </div>
             </div>
-            <a
-              :href="github_link"
-              target="_blank"
-              class="mb-[1em] text-white hover:text-custom-success-color cursor-pointer block text-[1.25em]"
-            >
-              View Project
-            </a>
+            <div class="flex">
+              <a
+                :href="github_link"
+                target="_blank"
+                class="mb-[1em] text-white hover:text-custom-success-color cursor-pointer block text-[1.25em] mr-[1em]"
+              >
+                Github
+              </a>
+              <a
+                v-if="site_link"
+                :href="site_link"
+                target="_blank"
+                class="mb-[1em] text-white hover:text-custom-success-color cursor-pointer block text-[1.25em]"
+              >
+                View Project
+              </a>
+            </div>
           </div>
         </div>
       </div>
