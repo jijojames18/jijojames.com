@@ -25,9 +25,9 @@ const icons = [
 </script>
 
 <template>
-  <section class="mt-[8%] mb-[4em] px-[5%] min-h-screen" id="skills">
+  <section class="mt-[8%] mb-[20em] px-[5%]" id="skills">
     <div class="flex flex-col justify-center max-w-[80em] mx-[auto] mt-[1em] mb-0">
-      <div class="text-white text-[3em] mb-[0.25em] text-center">
+      <div class="text-white text-[3em] mb-[2.25em] text-center">
         <h2>Technology stack</h2>
       </div>
       <div class="flex w-full flex-wrap justify-center">
