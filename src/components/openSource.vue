@@ -34,7 +34,7 @@ const projects = useCollection(collection(db, 'projects'));
               <div
                 v-for="(item, j) in technology"
                 :key="j"
-                class="bg-custom-success-color text-white mr-[1em] p-[0.5em] rounded-[0.3em] text-[1.25em]"
+                class="bg-custom-success-color text-black mr-[1em] p-[0.5em] rounded-[0.3em] text-[1.25em]"
               >
                 {{ item }}
               </div>

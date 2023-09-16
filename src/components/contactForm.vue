@@ -102,6 +102,7 @@ const submitButtonTheme =
                 :class="inputTheme"
                 maxlength="256"
                 name="contact-name"
+                id="contact-name"
                 required
                 v-model="contactName"
               />
@@ -114,6 +115,7 @@ const submitButtonTheme =
                 :class="inputTheme"
                 maxlength="256"
                 name="contact-email"
+                id="contact-email"
                 required
                 v-model="contactEmail"
               />
@@ -124,6 +126,7 @@ const submitButtonTheme =
                 :class="`${inputTheme} py-[1em]`"
                 maxlength="5000"
                 name="contact-message"
+                id="contact-message"
                 required
                 v-model="contactMessage"
               ></textarea>
