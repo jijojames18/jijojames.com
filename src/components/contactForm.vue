@@ -81,10 +81,10 @@ const submitButtonTheme =
             <img :src="mailIconUrl" alt="Send an email to jijojames18@gmail.com" />
             <span class="ml-[1em] text-white self-center">jijojames18@gmail.com</span>
           </div>
-          <div :class="additionalLinksTheme">
+          <!--<div :class="additionalLinksTheme">
             <img :src="resumeIconUrl" alt="Resume icon" />
             <a href="#" class="ml-[1em] text-custom-success-color self-center">Resume</a>
-          </div>
+          </div>-->
         </div>
       </div>
       <div :class="wrapperTheme">
