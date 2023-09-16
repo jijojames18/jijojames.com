@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'custom-text-color': '#7a878d',
+        'custom-text-color': '#A4AFB2',
         'custom-success-color': '#09c725',
         'custom-success-hover-color': '#09e85e1a',
         'custom-error-color': '#e23939',
