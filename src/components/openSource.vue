@@ -47,15 +47,15 @@ const projects = computed(() =>
             <img width="500" height="300" :src="image" loading="lazy" :alt="title" :class="`Project: ${title}`" />
           </div>
           <div>
-            <h3 class="text-[2em] mt-[0.25em] text-white">{{ title }}</h3>
+            <h3 class="text-[1.5em] mt-[0.25em] text-white">{{ title }}</h3>
             <span class="text-[1em] mb-[1em] block text-custom-text-color">
               {{ desc }}
             </span>
-            <div class="flex mb-[1em]">
+            <div class="flex flex-wrap mb-[1em]">
               <div
                 v-for="(item, j) in technology"
                 :key="j"
-                class="bg-custom-success-color text-black mr-[1em] p-[0.5em] rounded-[0.3em] text-[1.25em]"
+                class="bg-custom-success-color text-black my-[0.25em] mr-[1em] p-[0.5em] rounded-[0.3em] text-[1.25em] whitespace-nowrap"
               >
                 {{ item }}
               </div>
