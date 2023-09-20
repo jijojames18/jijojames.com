@@ -26,7 +26,7 @@ const linkStyles =
       </a>
       <nav role="navigation" class="flex items-center sm:hidden md:hidden lg:hidden">
         <div :class="linkStyles">
-          <a @click="scrollIntoView('skills')">Skills</a>
+          <a @click="scrollIntoView('skills')">Tech Stack</a>
         </div>
         <div :class="linkStyles">
           <a @click="scrollIntoView('openSource')">Open Source</a>
