@@ -12,7 +12,7 @@ const scrollIntoView = function (elemId: string) {
 };
 
 const linkStyles =
-  'mx-[1em] p-[0.5em] text-[2em] text-white cursor-pointer hover:text-custom-success-color text-center';
+  'mx-[1em] p-[0.5em] text-[1.5em] text-white cursor-pointer hover:text-custom-success-color text-center';
 </script>
 
 <template>
@@ -49,7 +49,7 @@ const linkStyles =
           />
         </div>
         <div class="mt-[4em]">
-          <h1 class="text-[4em] text-white text-center">
+          <h1 class="text-[2.5em] text-white text-center">
             Full stack developer, based out of Kerala, with 8+ years of development experience.
           </h1>
         </div>
