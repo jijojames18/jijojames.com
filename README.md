@@ -18,6 +18,7 @@ The service requires a number of config data to be present as environment variab
 | VITE_EMAIL_SERVICE_ID  | emailjs service id        |
 | VITE_EMAIL_TEMPLATE_ID | emailjs template id       |
 | VITE_EMAIL_PUBLIC_KEY  | emailjs public key        |
+| VITE_FIREBASE_CONFIG   | Firebase config JSON      |
 
 ## Recommended IDE Setup
 
