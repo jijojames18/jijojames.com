@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background: #232323;
+  background: #1c1624;
   color: #a4afb2;
 }
 
@@ -13,4 +13,8 @@ footer .footer-social-links img:hover {
 
 footer .footer-logo-wrapper img {
   filter: invert(53%) sepia(13%) saturate(289%) hue-rotate(154deg) brightness(96%) contrast(92%);
+}
+
+#app {
+  position: relative;
 }

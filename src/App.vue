@@ -3,6 +3,7 @@ import { useRecaptchaProvider } from 'vue-recaptcha';
 
 useRecaptchaProvider();
 
+import AppBg from './components/AppBg.vue';
 import PageHeader from './components/pageHeader.vue';
 import SkillList from './components/skillList.vue';
 import OpenSource from './components/openSource.vue';
@@ -11,6 +12,7 @@ import PageFooter from './components/pageFooter.vue';
 </script>
 
 <template>
+  <AppBg></AppBg>
   <div>
     <PageHeader></PageHeader>
     <SkillList></SkillList>
