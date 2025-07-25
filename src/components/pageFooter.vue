@@ -4,7 +4,6 @@ const socialHobbiesImgUrl = new URL('/assets/social-hobbies.svg', import.meta.ur
 const socialLinkedInImgUrl = new URL('/assets/social-linkedin.svg', import.meta.url).href;
 const socialGithubImgUrl = new URL('/assets/social-github.svg', import.meta.url).href;
 const socialJsFiddleImgUrl = new URL('/assets/social-jsfiddle.svg', import.meta.url).href;
-const socialTwitterImgUrl = new URL('/assets/social-twitter.svg', import.meta.url).href;
 
 // Theme
 const socialLinkTheme = 'footer-social-links mx-[1.5em]';
@@ -28,9 +27,6 @@ const socialLinkTheme = 'footer-social-links mx-[1.5em]';
         </a>
         <a href="https://jsfiddle.net/user/jijojames18/fiddles/" target="_blank" :class="socialLinkTheme">
           <img :src="socialJsFiddleImgUrl" alt="Open JSFiddle page" />
-        </a>
-        <a href="https://twitter.com/jijojames18" target="_blank" :class="socialLinkTheme">
-          <img :src="socialTwitterImgUrl" alt="Open Twiter page" />
         </a>
       </div>
       <div class="flex justify-center items-center m-[2em]">
