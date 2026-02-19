@@ -15,10 +15,7 @@ const socialLinkTheme = 'footer-social-links mx-[1.5em]';
       <div class="flex justify-center items-center mb-[2em]">
         <img :src="logoUrl" loading="lazy" alt="Site logo" />
       </div>
-      <div class="flex items-center justify-center border-b border-custom-text-color pb-[1em]">
-        <a href="https://hobbies.jijojames.com" target="_blank" :class="socialLinkTheme">
-          <img :src="socialHobbiesImgUrl" alt="Open hobbies.jijojames.com" />
-        </a>
+      <div class="flex items-center justify-center border-custom-text-color pb-[1em]">
         <a href="https://www.linkedin.com/in/jijojames18" target="_blank" :class="socialLinkTheme">
           <img :src="socialLinkedInImgUrl" alt="Open Linkedin page" />
         </a>
@@ -29,9 +26,9 @@ const socialLinkTheme = 'footer-social-links mx-[1.5em]';
           <img :src="socialJsFiddleImgUrl" alt="Open JSFiddle page" />
         </a>
       </div>
-      <div class="flex justify-center items-center m-[2em]">
+      <!-- <div class="flex justify-center items-center m-[2em]">
         <p>© {{ new Date().getFullYear() }} jijojames.com. All rights reserved.</p>
-      </div>
+      </div> -->
     </div>
   </footer>
 </template>

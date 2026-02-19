@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { useRecaptchaProvider } from 'vue-recaptcha';
+// import { useRecaptchaProvider } from 'vue-recaptcha';
 
-useRecaptchaProvider();
+// useRecaptchaProvider();
 
 import AppBg from './components/AppBg.vue';
-import PageHeader from './components/pageHeader.vue';
-import SkillList from './components/skillList.vue';
-import OpenSource from './components/openSource.vue';
-import ContactForm from './components/contactForm.vue';
+// import PageHeader from './components/pageHeader.vue';
+// import SkillList from './components/skillList.vue';
+// import OpenSource from './components/openSource.vue';
+// import ContactForm from './components/contactForm.vue';
 import PageFooter from './components/pageFooter.vue';
 </script>
 
 <template>
-  <AppBg></AppBg>
+  <!-- <AppBg></AppBg> -->
   <div>
-    <PageHeader></PageHeader>
-    <SkillList></SkillList>
+    <!-- <PageHeader></PageHeader> -->
+    <!-- <SkillList></SkillList>
     <OpenSource></OpenSource>
-    <ContactForm></ContactForm>
+    <ContactForm></ContactForm> -->
     <PageFooter></PageFooter>
   </div>
 </template>
